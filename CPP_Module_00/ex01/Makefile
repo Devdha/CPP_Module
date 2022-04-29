@@ -1,0 +1,35 @@
+CC = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -rf
+# NAME = philo
+
+SRCS = 
+INCS = 
+OBJ_DIR = ./obj
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+
+%o: %c
+	$(CC) -c $(CXXFLAGS)$< -o $(<:.c=.o) -I.
+
+$(NAME): $(OBJS) $(INCS)
+	@$(CC) $(CXXFLAGS) $(OBJS) -o $@
+	@printf "💡 Make Done\n"
+	# @printf "💡 Make $(NAME) Done\n"
+
+$(OBJ_DIR)/%.o : %.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CXXFLAGS) -c $< -o $@ -g
+
+all: $(NAME)
+
+clean :
+	@$(RM) $(OBJ_DIR)
+	@echo "🗑 Remove $(NAME)'s OBJs Done"
+
+fclean : clean
+	@$(RM) $(NAME)
+	@echo "🗑 Remove $(NAME) Done"
+
+re: fclean all
+
+.PHONY : all clean fclean re
