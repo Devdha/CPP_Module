@@ -1,22 +1,21 @@
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-# NAME = philo
+NAME = phonebook
 
-SRCS = 
-INCS = 
+SRCS = phonebook.cpp \
+		contact.cpp \
+		main.cpp
+INCS = phonebook.hpp \
+		contact.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-%o: %c
-	$(CC) -c $(CXXFLAGS)$< -o $(<:.c=.o) -I.
-
 $(NAME): $(OBJS) $(INCS)
 	@$(CC) $(CXXFLAGS) $(OBJS) -o $@
-	@printf "💡 Make Done\n"
-	# @printf "💡 Make $(NAME) Done\n"
+	@printf "💡 Make $(NAME) Done\n"
 
-$(OBJ_DIR)/%.o : %.c
+$(OBJ_DIR)/%.o : %.cpp
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CXXFLAGS) -c $< -o $@ -g
 

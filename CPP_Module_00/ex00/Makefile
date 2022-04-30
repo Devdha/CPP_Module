@@ -7,9 +7,6 @@ SRCS = megaphone.cpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-%o: %c
-	$(CC) -c $(CXXFLAGS)$< -o $(<:.c=.o) -I.
-
 $(NAME): $(OBJS)
 	@$(CC) $(CXXFLAGS) $(OBJS) -o $@
 	@printf "💡 Make $(NAME) Done\n"
