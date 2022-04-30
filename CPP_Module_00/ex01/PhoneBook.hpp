@@ -5,16 +5,14 @@
 
 # define ARR_SIZE 8
 
-class PhoneBook
-{
+class PhoneBook {
 private:
 	Contact contacts[ARR_SIZE];
-	size_t	contact_cnt;
-	size_t	contact_idx;
+	ssize_t	contact_idx;
 
 public:
 	PhoneBook();
-	void	add();
+	void	add(std::string *info);
 	void	search() const;
 };
 

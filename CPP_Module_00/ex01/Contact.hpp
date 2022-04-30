@@ -8,7 +8,7 @@
 
 class Contact {
 private:
-	size_t		index;
+	ssize_t		index;
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
@@ -16,8 +16,9 @@ private:
 	std::string	darkest_secret;
 
 public:
+	Contact();
 	Contact(
-		size_t		idx,
+		ssize_t		idx,
 		std::string	first_name,
 		std::string	last_name,
 		std::string	nickname,

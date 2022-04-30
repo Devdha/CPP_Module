@@ -3,11 +3,11 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 NAME = phonebook
 
-SRCS = phonebook.cpp \
-		contact.cpp \
+SRCS = PhoneBook.cpp \
+		Contact.cpp \
 		main.cpp
-INCS = phonebook.hpp \
-		contact.hpp
+INCS = PhoneBook.hpp \
+		Contact.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 

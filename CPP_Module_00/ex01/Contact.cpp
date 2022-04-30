@@ -2,8 +2,17 @@
 #include <iomanip>
 #include "Contact.hpp"
 
+Contact::Contact() {
+	index = 0;
+	first_name = "";
+	last_name = "";
+	nickname = "";
+	phone_number = "";
+	darkest_secret = "";
+}
+
 Contact::Contact(
-		size_t		idx,
+		ssize_t		idx,
 		std::string	in_first_name,
 		std::string	in_last_name,
 		std::string	in_nickname,
