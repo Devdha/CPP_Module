@@ -26,6 +26,7 @@ public:
 		std::string	darkest_secret);
 
 	void show() const;
+	void showDetail() const;
 };
 
 #endif

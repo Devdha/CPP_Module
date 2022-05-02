@@ -5,12 +5,22 @@
 #include "Contact.hpp"
 #include "util.hpp"
 
-bool	checkEof() {
+bool	isEof() {
 	if (std::cin.eof())
 	{
 		std::cin.clear();
 		clearerr(stdin);
 		std::cout << "  \n";
+		return true;
+	}
+	return false;
+}
+
+bool	isFailed() {
+	if (std::cin.fail()) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<ssize_t>::max(), '\n');
+		std::cout << ERR_INPUT;
 		return true;
 	}
 	return false;
@@ -27,10 +37,14 @@ bool	getInfo(std::string *info) {
 
 	for (int i = 0; i < 5; i++) {
 		std::cout << prompt[i];
-		std::cin >> info[i];
-		// std::cout << '\n';
-		if (checkEof())
+		if (i == 4)
+			std::getline(std::cin, info[i]);
+		else
+			std::cin >> info[i];
+		if (isEof() || isFailed()) {
+			std::cout << "aaaaa\n";
 			return false;
+		}
 	}
 	return true;
 }
@@ -44,8 +58,7 @@ int main() {
 	while (1) {
 		std::cout << PRPT_INPUT;
 		std::cin >> input;
-		// std::cout << '\n';
-		if (checkEof())
+		if (isEof() || isFailed())
 			continue;
 		iss.str(input);
 		std::getline(iss >> std::ws, input);
@@ -60,6 +73,7 @@ int main() {
 		else if (input == "EXIT")
 			break;
 		else
-			std::cout << "Unavaliable input.\n";
+			std::cout << ERR_INPUT;
+		std::cin.clear();
 	}
 }

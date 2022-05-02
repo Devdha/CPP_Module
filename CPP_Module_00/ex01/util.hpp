@@ -17,6 +17,8 @@
 # define CONT_P_NUMBER "Phone number: "
 # define CONT_D_SECRET "Secret: "
 
-bool	isValidInput(std::string input, int idx);
+# define ERR_INPUT "Error: Is invalid input\n"
+# define ERR_INDEX "Error: Is invalid index\n"
+# define ERR_VALUE "Error: Is invalid value\n"
 
 #endif
