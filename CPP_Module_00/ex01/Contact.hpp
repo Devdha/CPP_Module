@@ -4,6 +4,7 @@
 # include <iostream>
 
 # define CWIDTH 10
+# define OWIDTH 15
 # define SEPARATOR '|' 
 
 class Contact {

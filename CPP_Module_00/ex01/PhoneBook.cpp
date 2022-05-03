@@ -10,13 +10,12 @@ PhoneBook::PhoneBook()
 void PhoneBook::add(std::string *info) {
 	contacts[contact_idx % 8] = Contact(contact_idx % 8 + 1, info[0], info[1], info[2], info[3], info[4]);
 	contact_idx++;
-	
 }
 
 void PhoneBook::search() const {
 	ssize_t idx;
 
-	for (int i = 0; i < contact_idx % 8; i++) {
+	for (int i = 0; i < contact_idx && i < 8; i++) {
 		contacts[i].show();
 	}
 	std::cout << PRPT_IDX;
@@ -31,4 +30,5 @@ void PhoneBook::search() const {
 		return ;
 	}
 	contacts[idx - 1].showDetail();
+	std::cin.ignore(std::numeric_limits<ssize_t>::max(), '\n');
 }

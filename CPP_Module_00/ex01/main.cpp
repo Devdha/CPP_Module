@@ -6,8 +6,7 @@
 #include "util.hpp"
 
 bool	isEof() {
-	if (std::cin.eof())
-	{
+	if (std::cin.eof()) {
 		std::cin.clear();
 		clearerr(stdin);
 		std::cout << "  \n";
@@ -37,12 +36,9 @@ bool	getInfo(std::string *info) {
 
 	for (int i = 0; i < 5; i++) {
 		std::cout << prompt[i];
-		if (i == 4)
-			std::getline(std::cin, info[i]);
-		else
-			std::cin >> info[i];
-		if (isEof() || isFailed()) {
-			std::cout << "aaaaa\n";
+		std::getline(std::cin, info[i]);
+		if (isEof() || isFailed() || info[i].empty()) {
+			std::cout << ERR_INPUT;
 			return false;
 		}
 	}
@@ -57,11 +53,9 @@ int main() {
 
 	while (1) {
 		std::cout << PRPT_INPUT;
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (isEof() || isFailed())
 			continue;
-		iss.str(input);
-		std::getline(iss >> std::ws, input);
 		if (input == "ADD")
 		{
 			if (getInfo(info) == false)
@@ -76,4 +70,5 @@ int main() {
 			std::cout << ERR_INPUT;
 		std::cin.clear();
 	}
+	exit(0);
 }

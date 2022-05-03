@@ -35,10 +35,10 @@ void Contact::show() const {
 }
 
 void Contact::showDetail() const {
-	std::cout << std::left << std::setw(CWIDTH) << CONT_IDX << index << std::endl;
-	std::cout << std::right << std::setw(CWIDTH) << CONT_F_NAME << first_name << std::endl;
-	std::cout << std::right << std::setw(CWIDTH) << CONT_L_NAME << last_name << std::endl;
-	std::cout << std::right << std::setw(CWIDTH) << CONT_N_NAME << nickname << std::endl;
-	std::cout << std::right << std::setw(CWIDTH) << CONT_P_NUMBER << phone_number << std::endl;
-	std::cout << std::right << std::setw(CWIDTH) << CONT_D_SECRET << darkest_secret << std::endl;
+	std::cout << std::right << std::setw(OWIDTH) << CONT_IDX << index << std::endl;
+	std::cout << std::right << std::setw(OWIDTH) << CONT_F_NAME << first_name << std::endl;
+	std::cout << std::right << std::setw(OWIDTH) << CONT_L_NAME << last_name << std::endl;
+	std::cout << std::right << std::setw(OWIDTH) << CONT_N_NAME << nickname << std::endl;
+	std::cout << std::right << std::setw(OWIDTH) << CONT_P_NUMBER << phone_number << std::endl;
+	std::cout << std::right << std::setw(OWIDTH) << CONT_D_SECRET << darkest_secret << std::endl;
 }
