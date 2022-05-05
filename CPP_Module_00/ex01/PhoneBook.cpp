@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include "PhoneBook.hpp"
 #include "util.hpp"
 
@@ -13,22 +14,25 @@ void PhoneBook::add(std::string *info) {
 }
 
 void PhoneBook::search() const {
-	ssize_t idx;
+	std::string	input;
+	ssize_t 	idx;
 
 	for (int i = 0; i < contact_idx && i < 8; i++) {
 		contacts[i].show();
 	}
 	std::cout << PRPT_IDX;
-	std::cin >> idx;
-	if (std::cin.fail()) {
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<ssize_t>::max(), '\n');
+	std::getline(std::cin, input);
+	std::stringstream sstream;
+	sstream.str(input);
+	sstream >> idx;
+	if (!sstream.eof() || sstream.fail()) {
+		sstream.clear();
 		std::cout << ERR_VALUE;
 		return ;
-	} else if (idx < 1 || idx > 8 || idx > contact_idx) {
+	}
+	if (idx < 1 || idx > 8 || idx > contact_idx) {
 		std::cout << ERR_INDEX;
 		return ;
 	}
 	contacts[idx - 1].showDetail();
-	std::cin.ignore(std::numeric_limits<ssize_t>::max(), '\n');
 }

@@ -15,16 +15,6 @@ bool	isEof() {
 	return false;
 }
 
-bool	isFailed() {
-	if (std::cin.fail()) {
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<ssize_t>::max(), '\n');
-		std::cout << ERR_INPUT;
-		return true;
-	}
-	return false;
-}
-
 bool	getInfo(std::string *info) {
 	std::string prompt[5] = {
 		PRPT_F_NAME,
@@ -37,8 +27,8 @@ bool	getInfo(std::string *info) {
 	for (int i = 0; i < 5; i++) {
 		std::cout << prompt[i];
 		std::getline(std::cin, info[i]);
-		if (isEof() || isFailed() || info[i].empty()) {
-			std::cout << ERR_INPUT;
+		if (isEof() || info[i].empty()) {
+			std::cerr << ERR_INPUT;
 			return false;
 		}
 	}
@@ -54,7 +44,8 @@ int main() {
 	while (1) {
 		std::cout << PRPT_INPUT;
 		std::getline(std::cin, input);
-		if (isEof() || isFailed())
+		std::cin.ignore(-1, '\n');
+		if (isEof())
 			continue;
 		if (input == "ADD")
 		{
@@ -67,7 +58,7 @@ int main() {
 		else if (input == "EXIT")
 			break;
 		else
-			std::cout << ERR_INPUT;
+			std::cerr << ERR_INPUT;
 		std::cin.clear();
 	}
 	exit(0);

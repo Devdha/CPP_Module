@@ -29,6 +29,7 @@ fclean : clean
 	@$(RM) $(NAME)
 	@echo "🗑 Remove $(NAME) Done"
 
-re: fclean all
+re:
+	@make fclean all
 
 .PHONY : all clean fclean re
