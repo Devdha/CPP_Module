@@ -23,14 +23,18 @@ bool	getInfo(std::string *info) {
 		PRPT_P_NUMBER,
 		PRPT_D_SECRET
 	};
+	std::string	tmp;
 
 	for (int i = 0; i < 5; i++) {
 		std::cout << prompt[i];
 		std::getline(std::cin, info[i]);
-		if (isEof() || info[i].empty()) {
+		std::istringstream iss(info[i]);
+		iss >> std::ws >> tmp;
+		if (isEof() || tmp.empty() || !std::cin.good()) {
 			std::cerr << ERR_INPUT;
 			return false;
 		}
+		tmp.clear();
 	}
 	return true;
 }
@@ -45,7 +49,7 @@ int main() {
 		std::cout << PRPT_INPUT;
 		std::getline(std::cin, input);
 		std::cin.ignore(-1, '\n');
-		if (isEof())
+		if (isEof() || !std::cin.good())
 			continue;
 		if (input == "ADD")
 		{

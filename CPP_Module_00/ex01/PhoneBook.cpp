@@ -22,16 +22,25 @@ void PhoneBook::search() const {
 	}
 	std::cout << PRPT_IDX;
 	std::getline(std::cin, input);
+	if (!std::cin.good()) {
+		if (std::cin.eof()) {
+			clearerr(stdin);
+			std::cerr << std::endl;
+		}
+		std::cin.clear();
+		std::cerr << ERR_VALUE;
+		return ;
+	}
 	std::stringstream sstream;
 	sstream.str(input);
 	sstream >> idx;
 	if (!sstream.eof() || sstream.fail()) {
 		sstream.clear();
-		std::cout << ERR_VALUE;
+		std::cerr << ERR_VALUE;
 		return ;
 	}
 	if (idx < 1 || idx > 8 || idx > contact_idx) {
-		std::cout << ERR_INDEX;
+		std::cerr << ERR_INDEX;
 		return ;
 	}
 	contacts[idx - 1].showDetail();
