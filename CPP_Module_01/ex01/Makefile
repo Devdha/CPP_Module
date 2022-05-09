@@ -1,22 +1,23 @@
-CC = c++
-# CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-CXXFLAGS = -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = account
+NAME = zombie
 
-SRCS = Account.cpp \
-		tests.cpp
-INCS = Account.hpp
+SRCS = main.cpp \
+		Zombie.cpp \
+		newZombie.cpp \
+		randomChump.cpp
+INCS = Zombie.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 $(NAME): $(OBJS) $(INCS)
-	@$(CC) $(CXXFLAGS) $(OBJS) -o $@ -I.
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 	@printf "💡 Make $(NAME) Done\n"
 
 $(OBJ_DIR)/%.o : %.cpp
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CXXFLAGS) -c $< -o $@ -g
+	@$(CXX) $(CXXFLAGS) -c $< -o $@ -g
 
 all: $(NAME)
 
