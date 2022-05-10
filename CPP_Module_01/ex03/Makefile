@@ -1,13 +1,15 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = zombie
+NAME = human
 
 SRCS = main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
-INCS = Zombie.hpp
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp
+INCS = HumanA.hpp \
+		HumanB.hpp \
+		Weapon.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
