@@ -1,12 +1,13 @@
+#include <iostream>
 #include "Harl.hpp"
 
-int main() {
+int main(int argc, char **argv) {
 	Harl harl = Harl();
 
-	harl.complain("INFO");
-	harl.complain("ERROR");
-	harl.complain("WARNING");
-	harl.complain("DEBUG");
-	harl.complain("DEBUG");
-	harl.complain("ERROR");
+	if (argc != 2) {
+		std::cerr << "Error: 1 parameter required" << std::endl;
+		return (1);
+	}
+
+	harl.complain(argv[1]);
 }
