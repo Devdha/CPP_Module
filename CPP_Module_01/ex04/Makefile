@@ -1,17 +1,13 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = zombie
+NAME = sed
 
-SRCS = main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
-INCS = Zombie.hpp
+SRCS = main.cpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
-$(NAME): $(OBJS) $(INCS)
+$(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 	@printf "💡 Make $(NAME) Done\n"
 
