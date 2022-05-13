@@ -41,6 +41,7 @@ int main(int argc, char** argv) {
 	}
 
 	ofs << str;
+	ofs.close();
 
 	return (0);
 }
