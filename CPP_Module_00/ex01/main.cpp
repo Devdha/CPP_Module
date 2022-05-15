@@ -7,9 +7,8 @@
 
 bool	isEof() {
 	if (std::cin.eof()) {
-		std::cin.clear();
 		clearerr(stdin);
-		std::cout << "  \n";
+		std::cout << std::endl;
 		return true;
 	}
 	return false;
@@ -49,8 +48,10 @@ int main() {
 		std::cout << PRPT_INPUT;
 		std::getline(std::cin, input);
 		std::cin.ignore(-1, '\n');
-		if (isEof() || !std::cin.good())
+		if (isEof() || !std::cin.good()) {
+			std::cin.clear();
 			continue;
+		}
 		if (input == "ADD")
 		{
 			if (getInfo(info) == false)
