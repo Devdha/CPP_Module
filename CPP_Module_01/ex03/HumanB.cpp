@@ -2,6 +2,7 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name) {
+	HumanB::weapon = NULL;
 	HumanB::name = name;
 }
 
