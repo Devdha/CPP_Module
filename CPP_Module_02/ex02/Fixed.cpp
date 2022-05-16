@@ -32,6 +32,46 @@ Fixed::Fixed(const float value) {
     _value = roundf(value * (1 << _numOfBits));
 }
 
+bool	Fixed::operator>(const Fixed& fixed) {
+	return _value > fixed._value;
+}
+
+bool	Fixed::operator<(const Fixed& fixed) {
+	return _value < fixed._value;
+}
+
+bool	Fixed::operator>=(const Fixed& fixed) {
+	return _value >= fixed._value;
+}
+
+bool	Fixed::operator<=(const Fixed& fixed) {
+	return _value <= fixed._value;
+}
+
+bool	Fixed::operator==(const Fixed& fixed) {
+	return _value == fixed._value;
+}
+
+bool	Fixed::operator!=(const Fixed& fixed) {
+	return _value != fixed._value;
+}
+
+Fixed	Fixed::operator+(const Fixed& fixed) {
+	
+}
+
+Fixed	Fixed::operator-(const Fixed& fixed) {
+
+}
+
+Fixed	Fixed::operator*(const Fixed& fixed) {
+
+}
+
+Fixed	Fixed::operator/(const Fixed& fixed) {
+	
+}
+
 int     Fixed::toInt() const {
     return _value / (1 << _numOfBits);
 }
