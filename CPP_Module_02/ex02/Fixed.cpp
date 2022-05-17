@@ -3,35 +3,30 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() {
-	std::cout << "Default constructor called" << std::endl;
 	_value = 0;
 }
 
 Fixed::Fixed(const Fixed& old) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = old;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed&  Fixed::operator=(const Fixed& src) {
-	std::cout << "Copy assignment operator called" << std::endl;
 	_value = src.getRawBits();
 	return *this;
 }
 
 Fixed::Fixed(const int value) {
-    std::cout << "Int constructor called" << std::endl;
     _value = value * (1 << _numOfBits);
 }
 
 Fixed::Fixed(const float value) {
-    std::cout << "Float constructor called" << std::endl;
     _value = roundf(value * (1 << _numOfBits));
 }
 
+// Comparison operator
 bool	Fixed::operator>(const Fixed& fixed) {
 	return _value > fixed._value;
 }
@@ -56,22 +51,80 @@ bool	Fixed::operator!=(const Fixed& fixed) {
 	return _value != fixed._value;
 }
 
+// Arithmetic operator
 Fixed	Fixed::operator+(const Fixed& fixed) {
-	
+	Fixed tmp;
+
+	tmp._value = _value + fixed._value;
+	return tmp;
 }
 
 Fixed	Fixed::operator-(const Fixed& fixed) {
+	Fixed tmp;
 
+	tmp._value = _value - fixed._value;
+	return tmp;
 }
 
 Fixed	Fixed::operator*(const Fixed& fixed) {
+	Fixed tmp = Fixed(toFloat() * fixed.toFloat());
 
+	return tmp;
 }
 
 Fixed	Fixed::operator/(const Fixed& fixed) {
+	Fixed tmp = Fixed(toFloat() / fixed.toFloat());
 	
+	return tmp;
 }
 
+// Incre/decrement operator
+Fixed&	Fixed::operator++() {
+	_value++;
+	return *this;
+}
+
+Fixed	Fixed::operator++(int i) {
+	Fixed tmp;
+
+	(void) i;
+	tmp._value = _value;
+	_value++;
+	return tmp;
+}
+
+Fixed&	Fixed::operator--() {
+	_value--;
+	return *this;
+}
+
+Fixed	Fixed::operator--(int i) {
+	Fixed tmp;
+
+	(void) i;
+	tmp._value = _value;
+	_value--;
+	return tmp;
+}
+
+// Min/max funcs
+Fixed& Fixed::min(Fixed& f1, Fixed& f2) {
+	return f1 < f2 ? f1 : f2;
+}
+
+const Fixed& Fixed::min(const Fixed& f1, const Fixed& f2) {
+	return f1._value < f2._value ? f1 : f2;
+}
+
+Fixed& Fixed::max(Fixed& f1, Fixed& f2) {
+	return f1 > f2 ? f1 : f2;
+}
+
+const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2) {
+	return f1._value > f2._value ? f1 : f2;
+}
+
+// from ex01
 int     Fixed::toInt() const {
     return _value / (1 << _numOfBits);
 }
