@@ -1,5 +1,4 @@
 #include "Point.hpp"
-#include "Fixed.hpp"
 #include <iostream>
 
 float sign(Point const p1, Point const p2, Point const p3) {
