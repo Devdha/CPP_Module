@@ -14,7 +14,8 @@ Point& Point::operator=(const Point& src) {
 
     *(const_cast<Fixed*>(x)) = src.x;
     *(const_cast<Fixed*>(y)) = src.y;
-  return (*this);
+
+    return (*this);
 }
 
 float Point::getX() const {
