@@ -13,7 +13,7 @@ int main( void ) {
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	std::cout << a-- << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 
@@ -27,5 +27,6 @@ int main( void ) {
 	std::cout << f - e << std::endl;
 
 	std::cout << Fixed::min(c, a) << std::endl;
-return 0;
+	
+	return 0;
 }

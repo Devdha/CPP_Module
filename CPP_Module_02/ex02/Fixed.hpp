@@ -27,9 +27,9 @@ public:
 	Fixed	operator/(const Fixed& fixed);
 
 	Fixed&	operator++();
-	Fixed	operator++(int i);
+	Fixed	operator++(int);
 	Fixed&	operator--();
-	Fixed	operator--(int i);
+	Fixed	operator--(int);
 
 	static Fixed& min(Fixed& f1, Fixed& f2);
 	static const Fixed& min(const Fixed& f1, const Fixed& f2);
