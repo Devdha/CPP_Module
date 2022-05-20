@@ -3,12 +3,20 @@
 #include <iostream>
 
 ClapTrap::ClapTrap()
-    : _name("no_name"), _hitPoints(HP), _energyPoints(EP), _attackDamage(AD) {
+    : _name("no_name"),
+      _hitPoints(HP),
+      _energyPoints(EP),
+      _attackDamage(AD),
+      _maxHP(HP) {
   std::cout << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
-    : _name(name), _hitPoints(HP), _energyPoints(EP), _attackDamage(AD) {
+    : _name(name),
+      _hitPoints(HP),
+      _energyPoints(EP),
+      _attackDamage(AD),
+      _maxHP(HP) {
   std::cout << "String constructor called" << std::endl;
 }
 
@@ -17,6 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap& src) : _name(src._name) {
   _hitPoints = src._hitPoints;
   _energyPoints = src._energyPoints;
   _attackDamage = src._attackDamage;
+  _maxHP = src._maxHP;
 }
 
 ClapTrap::~ClapTrap() { std::cout << "Destructor called" << std::endl; }
@@ -28,6 +37,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& src) {
   _hitPoints = src._hitPoints;
   _energyPoints = src._energyPoints;
   _attackDamage = src._attackDamage;
+  _maxHP = src._maxHP;
 
   return *this;
 }
@@ -58,7 +68,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
   if (_energyPoints && _hitPoints) {
-    if (_hitPoints + amount > HP)
+    if (_hitPoints + amount > _maxHP)
       _hitPoints = HP;
     else
       _hitPoints += amount;

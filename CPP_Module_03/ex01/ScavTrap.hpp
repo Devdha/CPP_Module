@@ -3,7 +3,14 @@
 
 #include "ClapTrap.hpp"
 
+#define S_HP 100
+#define S_EP 50
+#define S_AD 20
+
 class ScavTrap : public ClapTrap {
+ private:
+  bool _isKeeper;
+
  public:
   ScavTrap();
   ScavTrap(std::string name);
@@ -11,6 +18,7 @@ class ScavTrap : public ClapTrap {
   ~ScavTrap();
   ScavTrap& operator=(const ScavTrap& src);
 
+  void attack(const std::string& target);
   void guardGate();
 };
 
