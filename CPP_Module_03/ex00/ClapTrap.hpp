@@ -3,6 +3,10 @@
 
 #include <string>
 
+#define HP 10
+#define EP 10
+#define AD 0
+
 class ClapTrap {
  private:
   const std::string _name;
