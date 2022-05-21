@@ -56,3 +56,5 @@ void ScavTrap::attack(const std::string& target) {
     std::cout << "ScavTrap " << _name << " no hit or energy point left"
               << std::endl;
 }
+
+void ScavTrap::guardGate() {}
