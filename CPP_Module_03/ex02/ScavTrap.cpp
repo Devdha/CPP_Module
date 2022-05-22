@@ -28,6 +28,7 @@ ScavTrap::ScavTrap(const ScavTrap& src) {
   _energyPoints = src._energyPoints;
   _attackDamage = src._attackDamage;
   _maxHP = src._maxHP;
+  _isKeeper = src._isKeeper;
   std::cout << "ScavTrap Copy constructor called" << std::endl;
 }
 
@@ -43,6 +44,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
   _energyPoints = src._energyPoints;
   _attackDamage = src._attackDamage;
   _maxHP = src._maxHP;
+  _isKeeper = src._isKeeper;
 
   return *this;
 }
@@ -55,4 +57,9 @@ void ScavTrap::attack(const std::string& target) {
   } else
     std::cout << "ScavTrap " << _name << " no hit or energy point left"
               << std::endl;
+}
+
+void ScavTrap::guardGate() {
+  std::cout << "ScavTrap " << _name << " is now gate keeper mode" << std::endl;
+  _isKeeper = true;
 }

@@ -8,14 +8,14 @@
 #define F_AD 30
 
 class FragTrap : public ClapTrap {
- private:
  public:
   FragTrap();
+  FragTrap(std::string name);
+  FragTrap(const FragTrap& src);
   ~FragTrap();
+  FragTrap& operator=(const FragTrap& src);
+
+  void highFiveGuys();
 };
-
-FragTrap::FragTrap() {}
-
-FragTrap::~FragTrap() {}
 
 #endif
