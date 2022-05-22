@@ -7,7 +7,7 @@
 #define F_EP 100
 #define F_AD 30
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
  public:
   FragTrap();
   FragTrap(std::string name);

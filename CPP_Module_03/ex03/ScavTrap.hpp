@@ -7,7 +7,7 @@
 #define S_EP 50
 #define S_AD 20
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
  private:
   bool _isKeeper;
 
