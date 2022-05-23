@@ -4,7 +4,7 @@
 
 #include "Animal.hpp"
 
-Cat::Cat() {
+Cat::Cat() : Animal() {
   _type = "Cat";
   std::cout << "Cat Constructor called" << std::endl;
 }
@@ -17,7 +17,7 @@ Cat::Cat(const Cat& src) {
 Cat::~Cat() { std::cout << "Cat Destructor called" << std::endl; }
 
 Cat& Cat::operator=(const Cat& src) {
-  _type = src._type;
+  Animal::operator=(src);
   return *this;
 }
 

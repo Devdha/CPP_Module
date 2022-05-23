@@ -6,10 +6,14 @@ NAME = animal
 SRCS = main.cpp \
 		Animal.cpp \
 		Cat.cpp \
-		Dog.cpp
+		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp
 INCS = Animal.hpp \
 		Cat.hpp \
-		Dog.hpp
+		Dog.hpp \
+		WrongAnimal.hpp \
+		WrongCat.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 

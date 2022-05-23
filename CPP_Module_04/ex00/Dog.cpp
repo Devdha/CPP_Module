@@ -4,12 +4,12 @@
 
 #include "Animal.hpp"
 
-Dog::Dog() {
+Dog::Dog() : Animal() {
   _type = "Dog";
   std::cout << "Dog Constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& src) {
+Dog::Dog(const Dog& src) : Animal(src) {
   _type = src._type;
   std::cout << "Dog Copy constructor called" << std::endl;
 }
@@ -17,7 +17,7 @@ Dog::Dog(const Dog& src) {
 Dog::~Dog() { std::cout << "Dog Destructor called" << std::endl; }
 
 Dog& Dog::operator=(const Dog& src) {
-  _type = src._type;
+  Animal::operator=(src);
   return *this;
 }
 
