@@ -5,19 +5,19 @@
 DiamondTrap::DiamondTrap()
     : ClapTrap("no_name_clap_name"), FragTrap(), ScavTrap(), _name("no_name") {
   std::cout << "DiamondTrap Default constructor called" << std::endl;
-  _hitPoints = F_HP;
-  _energyPoints = S_EP;
-  _attackDamage = F_AD;
-  _maxHP = F_HP;
+  _hitPoints = FragTrap::_hitPoints;
+  _energyPoints = ScavTrap::_energyPoints;
+  _attackDamage = FragTrap::_attackDamage;
+  _maxHP = FragTrap::_hitPoints;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
-    : ClapTrap(name + "clap_name"), FragTrap(), ScavTrap(), _name(name) {
+    : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap(), _name(name) {
   std::cout << "DiamondTrap String constructor called" << std::endl;
-  _hitPoints = F_HP;
-  _energyPoints = S_EP;
-  _attackDamage = F_AD;
-  _maxHP = F_HP;
+  _hitPoints = FragTrap::_hitPoints;
+  _energyPoints = ScavTrap::_energyPoints;
+  _attackDamage = FragTrap::_attackDamage;
+  _maxHP = FragTrap::_hitPoints;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& src)
@@ -40,7 +40,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& src) {
   const std::string* clapTrapTmp = &(ClapTrap::_name);
 
   *(const_cast<std::string*>(tmp)) = src._name;
-  *(const_cast<std::string*>(clapTrapTmp)) = ClapTrap::_name;
+  *(const_cast<std::string*>(clapTrapTmp)) = src.ClapTrap::_name;
   _hitPoints = src._hitPoints;
   _energyPoints = src._energyPoints;
   _attackDamage = src._attackDamage;

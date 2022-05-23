@@ -1,10 +1,11 @@
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-  ScavTrap A("A");
-  ScavTrap B("B");
-  ScavTrap C("C");
-  ScavTrap D;
+  DiamondTrap A("A");
+  DiamondTrap B("B");
+  DiamondTrap C("C");
+  DiamondTrap D;
+  ClapTrap *E = new DiamondTrap("E");
 
   A.attack("B");
   B.takeDamage(5);
@@ -14,4 +15,9 @@ int main() {
   C.beRepaired(5);
   D.attack("aaa");
   D.guardGate();
+  E->takeDamage(5);
+  C.whoAmI();
+  D.whoAmI();
+
+  delete E;
 }

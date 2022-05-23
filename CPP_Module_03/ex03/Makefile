@@ -1,15 +1,17 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = fragtrap
+NAME = diamondtrap
 
 SRCS = main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
-		FragTrap.cpp
+		FragTrap.cpp \
+		DiamondTrap.cpp
 INCS = ClapTrap.hpp \
 		ScavTrap.hpp \
-		FragTrap.hpp
+		FragTrap.hpp \
+		DiamondTrap.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
