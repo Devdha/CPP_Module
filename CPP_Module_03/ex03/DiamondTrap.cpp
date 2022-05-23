@@ -12,7 +12,10 @@ DiamondTrap::DiamondTrap()
 }
 
 DiamondTrap::DiamondTrap(std::string name)
-    : ClapTrap(name + "_clap_name"), FragTrap(), ScavTrap(), _name(name) {
+    : ClapTrap(name + "_clap_name"),
+      FragTrap(name),
+      ScavTrap(name),
+      _name(name) {
   std::cout << "DiamondTrap String constructor called" << std::endl;
   _hitPoints = FragTrap::_hitPoints;
   _energyPoints = ScavTrap::_energyPoints;
@@ -21,9 +24,9 @@ DiamondTrap::DiamondTrap(std::string name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& src)
-    : ClapTrap(src._name + "clap_name"),
-      FragTrap(),
-      ScavTrap(),
+    : ClapTrap(src._name + "_clap_name"),
+      FragTrap(src._name),
+      ScavTrap(src._name),
       _name(src._name) {
   _hitPoints = src._hitPoints;
   _energyPoints = src._energyPoints;

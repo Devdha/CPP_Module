@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "DiamondTrap.hpp"
 
 int main() {
@@ -6,6 +8,7 @@ int main() {
   DiamondTrap C("C");
   DiamondTrap D;
   ClapTrap *E = new DiamondTrap("E");
+  DiamondTrap F(C);
 
   A.attack("B");
   B.takeDamage(5);
@@ -18,6 +21,8 @@ int main() {
   E->takeDamage(5);
   C.whoAmI();
   D.whoAmI();
+  F.attack("you");
 
   delete E;
+  std::cout << "------------------------" << std::endl;
 }
