@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "Brain.hpp"
+
 class Animal {
  protected:
   std::string _type;
