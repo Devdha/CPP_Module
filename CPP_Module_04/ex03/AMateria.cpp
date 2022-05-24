@@ -1,13 +1,17 @@
 #include "AMateria.hpp"
 
-AMateria() {}
+#include <iostream>
 
-AMateria(std::string const& type) {}
+AMateria::AMateria() {
+  std::cout << "AMateria Default constructor called" << std::endl;
+}
 
-AMateria(const AMateria& src) {}
+AMateria::AMateria(std::string const& type) : _type(type) {}
 
-~AMateria() {}
+AMateria::AMateria(const AMateria& src) : _type(src._type) {}
 
-AMateria& operator=(const AMateria& src) {}
+AMateria::~AMateria() {}
 
-std::string const& getType() const {}
+AMateria& AMateria::operator=(const AMateria& src) {}
+
+std::string const& AMateria::getType() const {}
