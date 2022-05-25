@@ -1,16 +1,17 @@
 #ifndef ICE_HPP
 #define ICE_HPP
 
-class Ice {
- private:
-  /* data */
+#include "AMateria.hpp"
+
+class Ice : public AMateria {
  public:
-  Ice(/* args */);
+  Ice();
+  Ice(const Ice& src);
+  Ice& operator=(const Ice& src);
   ~Ice();
+
+  AMateria* clone() const;
+  void use(ICharacter& target);
 };
 
-Ice::Ice(/* args */) {}
-
-Ice::~Ice() {}
-
-#endif  // Ice_HPP
+#endif  // Ice_HP

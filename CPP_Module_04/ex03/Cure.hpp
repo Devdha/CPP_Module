@@ -1,16 +1,17 @@
 #ifndef CURE_HPP
 #define CURE_HPP
 
-class Cure {
- private:
-  /* data */
+#include "AMateria.hpp"
+
+class Cure : public AMateria {
  public:
-  Cure(/* args */);
+  Cure();
+  Cure(const Cure& src);
+  Cure& operator=(const Cure& src);
   ~Cure();
+
+  AMateria* clone() const;
+  void use(ICharacter& target);
 };
-
-Cure::Cure(/* args */) {}
-
-Cure::~Cure() {}
 
 #endif  // Cure_HPP

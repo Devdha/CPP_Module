@@ -2,9 +2,7 @@
 
 #include <iostream>
 
-AMateria::AMateria() {
-  std::cout << "AMateria Default constructor called" << std::endl;
-}
+AMateria::AMateria() : _type("") {}
 
 AMateria::AMateria(std::string const& type) : _type(type) {}
 
@@ -12,6 +10,12 @@ AMateria::AMateria(const AMateria& src) : _type(src._type) {}
 
 AMateria::~AMateria() {}
 
-AMateria& AMateria::operator=(const AMateria& src) {}
+AMateria& AMateria::operator=(const AMateria& src) {
+  _type = src._type;
 
-std::string const& AMateria::getType() const {}
+  return *this;
+}
+
+std::string const& AMateria::getType() const { return _type; }
+
+void AMateria::use(ICharacter& target) {}
