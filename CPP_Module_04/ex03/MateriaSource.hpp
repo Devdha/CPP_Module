@@ -1,9 +1,15 @@
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
+#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
-class MateriaSource {
+#define SLOT_MAX 4
+
+class MateriaSource : public IMateriaSource {
+ private:
+  AMateria* _arr[SLOT_MAX];
+
  public:
   MateriaSource();
   MateriaSource(const MateriaSource& src);
