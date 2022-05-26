@@ -22,6 +22,14 @@ int main() {
   for (int i = 0; i < 10; i++)
     delete arr[i];
 
-  system("leaks animal");
+  // Check Deep copy
+  // const Cat* k = new Cat();
+  // Cat c = *k;
+
+  // k->_brain->setIdea(0, "1111");
+  // std::cout << "test::::: " << c._brain->getIdea(0) << std::endl;
+
+  // delete k;
+  // system("leaks animal");
   return 0;
 }
