@@ -1,19 +1,11 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = animal
+NAME = a.out
 
 SRCS = main.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
-INCS = Animal.hpp \
-		Cat.hpp \
-		Dog.hpp \
-		WrongAnimal.hpp \
-		WrongCat.hpp
+		Bureaucrat.cpp
+INCS = Bureaucrat.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
