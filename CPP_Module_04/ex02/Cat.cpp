@@ -21,7 +21,8 @@ Cat::~Cat() {
 
 Cat& Cat::operator=(const Cat& src) {
   Animal::operator=(src);
-  delete _brain;
+  if (_brain)
+    delete _brain;
   _brain = new Brain(*src._brain);
   return *this;
 }
