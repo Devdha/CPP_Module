@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 
-#include <cstring>
 #include <iostream>
+#include <string>
 
 Brain::Brain() {
   std::cout << "Brain Constructor called" << std::endl;

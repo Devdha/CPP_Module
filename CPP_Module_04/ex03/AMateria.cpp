@@ -1,6 +1,7 @@
 #include "AMateria.hpp"
 
 #include <iostream>
+#include <string>
 
 AMateria::AMateria() : _type("") {}
 

@@ -1,6 +1,7 @@
 #include "Character.hpp"
 
 #include <iostream>
+#include <string>
 
 Character::Character() : _name("no_name") {
   for (int i = 0; i < SLOT_MAX; i++)

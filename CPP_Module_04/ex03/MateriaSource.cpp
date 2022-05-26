@@ -1,6 +1,7 @@
 #include "MateriaSource.hpp"
 
 #include <iostream>
+#include <string>
 
 MateriaSource::MateriaSource() {
   for (int i = 0; i < SLOT_MAX; i++)
