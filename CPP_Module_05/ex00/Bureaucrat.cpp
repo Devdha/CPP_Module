@@ -1,6 +1,7 @@
 #include "Bureaucrat.hpp"
 
 #include <ostream>
+#include <string>
 
 #define GRADE_MAX 150
 #define GRADE_MIN 1
