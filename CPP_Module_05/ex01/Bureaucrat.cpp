@@ -1,9 +1,10 @@
 #include "Bureaucrat.hpp"
 
+#include <exception>
+#include <string>
+#include "Form.hpp"
+#include <iostream>
 #include <ostream>
-
-#define GRADE_MAX 150
-#define GRADE_MIN 1
 
 Bureaucrat::Bureaucrat() {}
 
@@ -42,6 +43,14 @@ void Bureaucrat::increment() {
   _grade--;
 }
 
+void Bureaucrat::signForm(Form& form) {
+  try {
+    form.beSigned(*this);
+  } catch (std::exception& e) {
+    std::cerr << _name << " couldn't sign " << form._name << " because " << e.what() << std::endl;
+  }
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
   return "Grade is too high";
 }
@@ -54,3 +63,4 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureau) {
   return out << bureau.getName() << ", bureaucrat grade " << bureau.getGrade()
              << ".";
 }
+

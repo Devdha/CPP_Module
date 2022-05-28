@@ -1,8 +1,12 @@
-#if !defined(BUREAUCRAT_HPP)
+#if !defined BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
 #include <exception>
 #include <string>
+#include "Form.hpp"
+
+#define GRADE_MAX 150
+#define GRADE_MIN 1
 
 class Bureaucrat {
  private:
@@ -22,6 +26,8 @@ class Bureaucrat {
 
   void increment();
   void decrement();
+
+  void signForm(Form& form);
 
   struct GradeTooHighException : public std::exception {
     const char* what() const throw();
