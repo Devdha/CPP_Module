@@ -36,9 +36,9 @@ void Form::beSigned(const Bureaucrat& bureau) {
     throw GradeTooLowException();
 }
 
-const std::string Form::getName() { return _name; }
+std::string Form::getName() const { return _name; }
 
-const int Form::getRequired() { return _required; }
+int Form::getRequired() const { return _required; }
 
 bool Form::getSigned() const { return _signed; }
 
@@ -52,4 +52,11 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 const char* Form::AlreadySignedException::what() const throw() {
   return "this Form is already signed";
+}
+
+std::ostream& operator<<(std::ostream& out, const Form& form) {
+  std::string isSigned = form.getSigned() ? "is signed " : "isn't signed";
+
+  return out << form.getName() << ", form " << isSigned
+             << "(required grade: " << form.getRequired() << ")";
 }

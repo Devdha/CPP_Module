@@ -1,6 +1,7 @@
 #if !defined FORM_HPP
 #define FORM_HPP
 
+#include <ostream>
 #include <string>
 
 #include "Bureaucrat.hpp"
@@ -22,8 +23,8 @@ class Form {
 
   void beSigned(const Bureaucrat& bureau);
 
-  const std::string getName();
-  const int getRequired();
+  std::string getName() const;
+  int getRequired() const;
   bool getSigned() const;
 
   struct GradeTooHighException : public std::exception {
@@ -38,5 +39,7 @@ class Form {
     const char* what() const throw();
   };
 };
+
+std::ostream& operator<<(std::ostream& out, const Form& form);
 
 #endif  // FORM_HPP

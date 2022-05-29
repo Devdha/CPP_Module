@@ -20,12 +20,19 @@ int main() {
   Form as("af", 150);
   Form bs("bf", 1);
 
+  std::cout << as << std::endl;
+  std::cout << bs << std::endl;
+
   c.signForm(as);
   c.signForm(bs);
   a.signForm(as);
   b.signForm(bs);
   c.signForm(as);
   c.signForm(bs);
+
+  std::cout << as << std::endl;
+  std::cout << bs << std::endl;
+
   makeForm("test1", 151);
   makeForm("test2", 0);
   makeForm("test3", -15);
