@@ -4,8 +4,10 @@ RM = rm -rf
 NAME = a.out
 
 SRCS = main.cpp \
-		Bureaucrat.cpp
-INCS = Bureaucrat.hpp
+		Bureaucrat.cpp \
+		Form.cpp
+INCS = Bureaucrat.hpp \
+		Form.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 

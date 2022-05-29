@@ -1,26 +1,32 @@
 #include <iostream>
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+void makeForm(std::string name, int req) {
+  try {
+    Form(name, req);
+  } catch (std::exception& e) {
+    std::cerr << "Fail to make Form " << name << " because " << e.what()
+              << std::endl;
+  }
+}
 
 int main() {
-  try {
-    Bureaucrat a("a", 151);
-  } catch (std::exception& e) {
-    std::cerr << e.what() << std::endl;
-  }
-  try {
-    Bureaucrat b("b", 0);
-  } catch (std::exception& e) {
-    std::cerr << e.what() << std::endl;
-  }
-  try {
-    Bureaucrat c("c", 70);
-    for (int i = 0; i < 81; i++) {
-      c.increment();
-      if (i % 10 == 0)
-        std::cout << c << std::endl;
-    }
-  } catch (std::exception& e) {
-    std::cerr << e.what() << std::endl;
-  }
+  Bureaucrat a("a", 150);
+  Bureaucrat b("b", 1);
+  Bureaucrat c("c", 75);
+
+  Form as("af", 150);
+  Form bs("bf", 1);
+
+  c.signForm(as);
+  c.signForm(bs);
+  a.signForm(as);
+  b.signForm(bs);
+  c.signForm(as);
+  c.signForm(bs);
+  makeForm("test1", 151);
+  makeForm("test2", 0);
+  makeForm("test3", -15);
 }
