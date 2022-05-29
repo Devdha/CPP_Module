@@ -22,7 +22,9 @@ class Form {
 
   void beSigned(const Bureaucrat& bureau);
 
-  std::string getName();
+  const std::string getName();
+  const int getRequired();
+  bool getSigned() const;
 
   struct GradeTooHighException : public std::exception {
     const char* what() const throw();

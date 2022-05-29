@@ -36,7 +36,11 @@ void Form::beSigned(const Bureaucrat& bureau) {
     throw GradeTooLowException();
 }
 
-std::string Form::getName() { return _name; }
+const std::string Form::getName() { return _name; }
+
+const int Form::getRequired() { return _required; }
+
+bool Form::getSigned() const { return _signed; }
 
 const char* Form::GradeTooHighException::what() const throw() {
   return "Grade is too high";
