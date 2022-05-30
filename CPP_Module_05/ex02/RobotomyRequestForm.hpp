@@ -5,6 +5,7 @@
 
 #define R_SIGN 72
 #define R_EXEC 45
+#define D_SOUND "Drrrrrrrrrrrrrrrrrrrrrrrrilling"
 
 class RobotomyRequestForm : public Form {
  private:

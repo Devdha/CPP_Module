@@ -1,5 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 #include "Form.hpp"
@@ -22,6 +24,11 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
   } else if (executor.getGrade() <= Form::getERequired()) {
     std::cout << executor.getName() << " executed " << Form::getName()
               << std::endl;
+    std::cout << D_SOUND << std::endl;
+
+    std::string status = std::rand() % 2 ? "robotomized successfully"
+                                         : "failed to be robotomized";
+    std::cout << executor.getName() << " has been " << status << std::endl;
   } else
     throw GradeTooLowException();
 }

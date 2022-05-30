@@ -23,6 +23,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   } else if (executor.getGrade() <= Form::getERequired()) {
     std::cout << executor.getName() << " executed " << Form::getName()
               << std::endl;
+    std::cout << A_TREE << std::endl;
   } else
     throw GradeTooLowException();
 }
