@@ -20,10 +20,12 @@ Cat::~Cat() {
 }
 
 Cat& Cat::operator=(const Cat& src) {
+  Brain* tmp = new Brain(*src._brain);
+
   Animal::operator=(src);
   if (_brain)
     delete _brain;
-  _brain = new Brain(*src._brain);
+  _brain = tmp;
   return *this;
 }
 
