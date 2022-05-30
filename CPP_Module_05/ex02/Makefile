@@ -5,9 +5,15 @@ NAME = a.out
 
 SRCS = main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		Form.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 INCS = Bureaucrat.hpp \
-		Form.hpp
+		Form.hpp \
+		PresidentialPardonForm.hpp \
+		RobotomyRequestForm.hpp \
+		ShrubberyCreationForm.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 

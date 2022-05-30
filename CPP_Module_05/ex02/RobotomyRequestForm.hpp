@@ -3,6 +3,9 @@
 
 #include "Form.hpp"
 
+#define R_SIGN 72
+#define R_EXEC 45
+
 class RobotomyRequestForm : public Form {
  private:
   RobotomyRequestForm& operator=(const RobotomyRequestForm& src);
@@ -10,10 +13,11 @@ class RobotomyRequestForm : public Form {
  public:
   RobotomyRequestForm();
   RobotomyRequestForm(std::string name);
+  RobotomyRequestForm(const Form& src);
   RobotomyRequestForm(const RobotomyRequestForm& src);
   ~RobotomyRequestForm();
 
-  void execute(Bureaucrat const& executor);
+  void execute(Bureaucrat const& executor) const;
 };
 
 #endif  // ROBOTOMYREQUESTFORM
