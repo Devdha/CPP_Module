@@ -23,6 +23,10 @@ int main() {
   for (int i = 0; i < 10; i++)
     delete arr[i];
 
+  Dog* d = new Dog();
+  *d = *d;
+  delete d;
+
   // Check Deep copy
   // const Cat* k = new Cat();
   // Cat c = *k;
