@@ -17,12 +17,14 @@ MateriaSource::MateriaSource(const MateriaSource& src) {
 }
 MateriaSource& MateriaSource::operator=(const MateriaSource& src) {
   for (int i = 0; i < SLOT_MAX; i++) {
+    AMateria* tmp = src._arr[i]->clone();
+
     if (_arr[i]) {
       delete _arr[i];
       _arr[i] = NULL;
     }
     if (src._arr[i])
-      _arr[i] = src._arr[i]->clone();
+      _arr[i] = tmp;
   }
 
   return *this;
