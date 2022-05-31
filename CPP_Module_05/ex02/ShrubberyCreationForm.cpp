@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
+#include <fstream>
 #include <iostream>
 
 #include "Form.hpp"
@@ -23,7 +24,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   } else if (executor.getGrade() <= Form::getERequired()) {
     std::cout << executor.getName() << " executed " << Form::getName()
               << std::endl;
-    std::cout << A_TREE << std::endl;
+    std::ofstream ofs;
+    ofs.open(executor.getName() + "_shrubbery",
+             std::ofstream::out | std::ofstream::trunc);
+    if (ofs.fail()) {
+      std::cerr << "Error: file open failed" << std::endl;
+      return;
+    }
+    ofs << A_TREE;
+    ofs.close();
   } else
     throw GradeTooLowException();
 }

@@ -17,10 +17,12 @@ int main() {
   ShrubberyCreationForm aa("aa");
   b.signForm(aa);
   b.executeForm(aa);
+  std::cout << "=================" << std::endl;
   RobotomyRequestForm bb("bb");
   b.signForm(bb);
   for (int i = 0; i < 2; i++)
     b.executeForm(bb);
+  std::cout << "=================" << std::endl;
   PresidentialPardonForm cc("cc");
   b.signForm(cc);
   c.executeForm(cc);
