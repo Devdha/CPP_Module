@@ -4,6 +4,9 @@
 #include <exception>
 #include <string>
 
+#define GRADE_MAX 150
+#define GRADE_MIN 1
+
 class Bureaucrat {
  private:
   const std::string _name;

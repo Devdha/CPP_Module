@@ -3,9 +3,6 @@
 #include <ostream>
 #include <string>
 
-#define GRADE_MAX 150
-#define GRADE_MIN 1
-
 Bureaucrat::Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
