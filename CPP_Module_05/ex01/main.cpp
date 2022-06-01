@@ -3,9 +3,9 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-void makeForm(std::string name, int req) {
+void makeForm(std::string name, int req1, int req2) {
   try {
-    Form(name, req);
+    Form(name, req1, req2);
   } catch (std::exception& e) {
     std::cerr << "Fail to make Form " << name << " because " << e.what()
               << std::endl;
@@ -17,8 +17,8 @@ int main() {
   Bureaucrat b("b", 1);
   Bureaucrat c("c", 75);
 
-  Form as("af", 150);
-  Form bs("bf", 1);
+  Form as("af", 150, 149);
+  Form bs("bf", 2, 1);
 
   std::cout << as << std::endl;
   std::cout << bs << std::endl;
@@ -33,7 +33,7 @@ int main() {
   std::cout << as << std::endl;
   std::cout << bs << std::endl;
 
-  makeForm("test1", 151);
-  makeForm("test2", 0);
-  makeForm("test3", -15);
+  makeForm("test1", 151, 151);
+  makeForm("test2", 0, 0);
+  makeForm("test3", -15, -15);
 }
