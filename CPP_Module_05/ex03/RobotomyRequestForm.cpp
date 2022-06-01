@@ -6,10 +6,11 @@
 
 #include "Form.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("no_name", R_SIGN, R_EXEC) {}
+RobotomyRequestForm::RobotomyRequestForm()
+    : Form("no_name", "no_name", R_SIGN, R_EXEC) {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name)
-    : Form(name, R_SIGN, R_EXEC) {}
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+    : Form(R_NAME, target, R_SIGN, R_EXEC) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const Form& src) : Form(src) {}
 
@@ -28,7 +29,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 
     std::string status = std::rand() % 2 ? "robotomized successfully"
                                          : "failed to be robotomized";
-    std::cout << executor.getName() << " has been " << status << std::endl;
+    std::cout << getTarget() << " has been " << status << std::endl;
   } else
     throw GradeTooLowException();
 }

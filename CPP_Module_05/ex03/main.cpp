@@ -1,30 +1,47 @@
-#include <ctime>
+
 #include <iostream>
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 int main() {
-  std::srand(std::time(NULL));
+  Intern someRandomIntern;
+  Form* rrf;
+  Form* rrf2;
+  Bureaucrat a("a", 1);
 
-  Bureaucrat a("a", 150);
-  Bureaucrat b("b", 1);
-  Bureaucrat c("c", 75);
+  try {
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+  } catch (std::exception& e) {
+    std::cerr << "Failed to make Form because " << e.what() << std::endl;
+  }
+  try {
+    rrf2 = someRandomIntern.makeForm("robotomy reques", "Bender");
+  } catch (std::exception& e) {
+    std::cerr << "Failed to make Form because " << e.what() << std::endl;
+  }
+  a.executeForm(*rrf);
+  a.signForm(*rrf);
+  a.executeForm(*rrf);
 
-  ShrubberyCreationForm aa("aa");
-  b.signForm(aa);
-  b.executeForm(aa);
-  std::cout << "=================" << std::endl;
-  RobotomyRequestForm bb("bb");
-  b.signForm(bb);
-  for (int i = 0; i < 2; i++)
-    b.executeForm(bb);
-  std::cout << "=================" << std::endl;
-  PresidentialPardonForm cc("cc");
-  b.signForm(cc);
-  c.executeForm(cc);
-  b.executeForm(cc);
+  delete rrf;
+
+  try {
+    rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+  } catch (std::exception& e) {
+    std::cerr << "Failed to make Form because " << e.what() << std::endl;
+  }
+  try {
+    rrf2 = someRandomIntern.makeForm("shrubbery creatio", "Bender");
+  } catch (std::exception& e) {
+    std::cerr << "Failed to make Form because " << e.what() << std::endl;
+  }
+  a.signForm(*rrf);
+  a.executeForm(*rrf);
+
+  delete rrf;
 }

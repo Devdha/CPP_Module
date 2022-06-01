@@ -5,6 +5,7 @@
 
 #define R_SIGN 72
 #define R_EXEC 45
+#define R_NAME "Robotomy request form"
 #define D_SOUND "Drrrrrrrrrrrrrrrrrrrrrrrrilling"
 
 class RobotomyRequestForm : public Form {
@@ -13,7 +14,7 @@ class RobotomyRequestForm : public Form {
 
  public:
   RobotomyRequestForm();
-  RobotomyRequestForm(std::string name);
+  RobotomyRequestForm(std::string target);
   RobotomyRequestForm(const Form& src);
   RobotomyRequestForm(const RobotomyRequestForm& src);
   ~RobotomyRequestForm();

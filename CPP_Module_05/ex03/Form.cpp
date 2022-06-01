@@ -6,12 +6,17 @@
 #include "Bureaucrat.hpp"
 
 Form::Form()
-    : _name("no_name"), _s_required(75), _e_required(75), _signed(false) {}
+    : _name("no_name"),
+      _s_required(75),
+      _e_required(75),
+      _target("no_name"),
+      _signed(false) {}
 
-Form::Form(std::string name, int s_required, int e_required)
+Form::Form(std::string name, std::string target, int s_required, int e_required)
     : _name(name),
       _s_required(s_required),
       _e_required(e_required),
+      _target(target),
       _signed(false) {
   if (_s_required > GRADE_MAX || _e_required > GRADE_MAX)
     throw GradeTooHighException();
@@ -23,10 +28,12 @@ Form::Form(const Form& src)
     : _name(src._name),
       _s_required(src._s_required),
       _e_required(src._e_required),
+      _target(src._target),
       _signed(src._signed) {}
 
 Form& Form::operator=(const Form& src) {
   _signed = src._signed;
+  _target = src._target;
 
   return *this;
 }
@@ -44,6 +51,7 @@ void Form::beSigned(const Bureaucrat& bureau) {
 }
 
 std::string Form::getName() const { return _name; }
+std::string Form::getTarget() const { return _target; }
 int Form::getSRequired() const { return _s_required; }
 int Form::getERequired() const { return _e_required; }
 bool Form::getSigned() const { return _signed; }

@@ -5,6 +5,7 @@
 
 #define S_SIGN 145
 #define S_EXEC 137
+#define S_NAME "Shrubbery creation form"
 #define A_TREE \
   "                                              .         ;    \n \
                  .              .              ;%     ;;        \n \
@@ -40,7 +41,7 @@ class ShrubberyCreationForm : public Form {
 
  public:
   ShrubberyCreationForm();
-  ShrubberyCreationForm(std::string name);
+  ShrubberyCreationForm(std::string target);
   ShrubberyCreationForm(const Form& src);
   ShrubberyCreationForm(const ShrubberyCreationForm& src);
   ~ShrubberyCreationForm();
