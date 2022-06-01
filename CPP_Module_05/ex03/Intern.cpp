@@ -1,5 +1,7 @@
 #include "Intern.hpp"
 
+#include <iostream>
+
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -12,19 +14,26 @@ Intern& Intern::operator=(const Intern&) { return *this; }
 Form* Intern::makeForm(std::string name, std::string target) {
   static const std::string forms[F_CNT] = {
       "presidential pardon", "robotomy request", "shrubbery creation"};
+  Form* ret;
   int i = 0;
+
   while (i < F_CNT && forms[i] != name)
     ++i;
   switch (i) {
     case 0:
-      return new PresidentialPardonForm(target);
+      ret = new PresidentialPardonForm(target);
+      break;
     case 1:
-      return new RobotomyRequestForm(target);
+      ret = new RobotomyRequestForm(target);
+      break;
     case 2:
-      return new ShrubberyCreationForm(target);
+      ret = new ShrubberyCreationForm(target);
+      break;
     default:
       throw NoMatchForm();
   }
+  std::cout << "Intern creates " << ret->getName() << std::endl;
+  return ret;
 }
 
 const char* Intern::NoMatchForm::what() const throw() {
