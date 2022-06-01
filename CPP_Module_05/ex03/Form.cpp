@@ -19,9 +19,9 @@ Form::Form(std::string name, std::string target, int s_required, int e_required)
       _target(target),
       _signed(false) {
   if (_s_required > GRADE_MAX || _e_required > GRADE_MAX)
-    throw GradeTooHighException();
-  else if (_s_required < GRADE_MIN || _e_required < GRADE_MIN)
     throw GradeTooLowException();
+  else if (_s_required < GRADE_MIN || _e_required < GRADE_MIN)
+    throw GradeTooHighException();
 }
 
 Form::Form(const Form& src)
