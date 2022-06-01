@@ -6,10 +6,10 @@
 #include "Form.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-    : Form("no_name", S_SIGN, S_EXEC) {}
+    : Form("no_name", "no_name", S_SIGN, S_EXEC) {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name)
-    : Form(name, S_SIGN, S_EXEC) {}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+    : Form(S_NAME, target, S_SIGN, S_EXEC) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const Form& src) : Form(src) {}
 
@@ -25,7 +25,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     std::cout << executor.getName() << " executed " << Form::getName()
               << std::endl;
     std::ofstream ofs;
-    ofs.open(executor.getName() + "_shrubbery",
+    ofs.open(getTarget() + "_shrubbery",
              std::ofstream::out | std::ofstream::trunc);
     if (ofs.fail()) {
       std::cerr << "Error: file open failed" << std::endl;

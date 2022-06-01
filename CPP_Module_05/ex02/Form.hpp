@@ -11,13 +11,14 @@ class Form {
   const std::string _name;
   const int _s_required;
   const int _e_required;
+  std::string _target;
   bool _signed;
 
   Form& operator=(const Form& src);
 
  public:
   Form();
-  Form(std::string name, int s_required, int e_required);
+  Form(std::string name, std::string target, int s_required, int e_required);
   Form(const Form& src);
   virtual ~Form();
 
@@ -25,6 +26,7 @@ class Form {
   virtual void execute(Bureaucrat const& executor) const = 0;
 
   std::string getName() const;
+  std::string getTarget() const;
   int getSRequired() const;
   int getERequired() const;
   bool getSigned() const;
