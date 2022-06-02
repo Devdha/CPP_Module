@@ -75,6 +75,7 @@ const char* Form::NotSignedException::what() const throw() {
 std::ostream& operator<<(std::ostream& out, const Form& form) {
   std::string isSigned = form.getSigned() ? "signed " : "isn't signed";
 
-  return out << form.getName() << ", form is " << isSigned
-             << "(required grade: " << form.getSRequired() << ")";
+  return out << form.getName() << ", form " << isSigned
+             << "(required grade: " << form.getSRequired() << " / "
+             << form.getERequired() << ")";
 }
