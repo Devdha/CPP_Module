@@ -9,6 +9,7 @@ static const float fInfValue = std::numeric_limits<float>::infinity();
 
 char dtoc(double value) { return static_cast<char>(value); }
 int dtoi(double value) { return static_cast<int>(value); }
+int64_t dtoi64(double value) { return static_cast<int64_t>(value); }
 float dtof(double value) { return static_cast<float>(value); }
 
 void printChar(double value) {
@@ -25,6 +26,8 @@ void printChar(double value) {
 void printInt(double value) {
   std::cout << "int: ";
   if (value != value || value == dInfValue || value == -dInfValue)
+    std::cout << IMPOS << std::endl;
+  else if (dtoi64(value) > INT_MAX || dtoi64(value) < INT_MIN)
     std::cout << IMPOS << std::endl;
   else
     std::cout << dtoi(value) << std::endl;
