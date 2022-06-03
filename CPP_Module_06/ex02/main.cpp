@@ -58,4 +58,6 @@ int main() {
   Base& ref = *base;
   identify(base);
   identify(ref);
+
+  delete base;
 }
