@@ -1,11 +1,11 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = a.out
+NAME = convert
 
 SRCS = main.cpp \
-		Bureaucrat.cpp
-INCS = Bureaucrat.hpp
+		print.cpp
+INCS = print.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 

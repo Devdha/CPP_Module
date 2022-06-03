@@ -8,7 +8,7 @@ double parse(const std::string& input) {
   char* ptr = NULL;
 
   if (input.length() == 1 && isprint(input[0]) && !isdigit(input[0]))
-    ret = input[0];
+    ret = static_cast<double>(input[0]);
   else {
     ret = strtod(input.c_str(), &ptr);
     if (ret == 0.0 && input[0] != '-' && input[0] != '+' &&
@@ -25,15 +25,14 @@ void cast(const std::string& input) {
   double value = 0.0;
   try {
     value = parse(input);
+    printChar(value);
+    printInt(value);
+    printFloat(value);
+    printDouble(value);
   } catch (std::invalid_argument& e) {
     std::cerr << "Error: Invalid parameter passed as \"" << e.what() << "\""
               << std::endl;
   }
-  printChar(value);
-  printInt(value);
-  printFloat(value);
-  printDouble(value);
-  std::cout << value << std::endl;
 }
 
 int main(int argc, char** argv) {
