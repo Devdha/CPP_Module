@@ -4,8 +4,14 @@ RM = rm -rf
 NAME = convert
 
 SRCS = main.cpp \
-		print.cpp
-INCS = print.hpp
+		Base.cpp \
+		A.cpp \
+		B.cpp \
+		C.cpp
+INCS = Base.hpp \
+		A.hpp \
+		B.hpp \
+		C.cpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
