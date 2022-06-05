@@ -9,10 +9,11 @@
 
 template <typename T>
 typename T::iterator easyfind(T& container, const int num) {
-  typename T::iterator iter = std::find(T.begin(), T.end(), num);
+  typename T::iterator iter =
+      std::find(container.begin(), container.end(), num);
 
-  if (iter == T.end())
-    throw std::invalid_argument();
+  if (iter == container.end())
+    throw std::invalid_argument("Error: Passed parameter is not found");
   return iter;
 }
 

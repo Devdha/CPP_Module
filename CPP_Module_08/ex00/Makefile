@@ -3,9 +3,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 NAME = a.out
 
-SRCS = main.cpp \
-		Bureaucrat.cpp
-INCS = Bureaucrat.hpp
+SRCS = main.cpp
+INCS = easyfind.hpp
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
