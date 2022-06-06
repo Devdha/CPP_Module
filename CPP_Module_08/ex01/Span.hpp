@@ -15,12 +15,17 @@ class Span {
   Span& operator=(const Span& src);
   ~Span();
 
-  void addNumber();
+  void addNumber(int num);
+  void addNumber(std::vector<int>::iterator begin,
+                 std::vector<int>::iterator end);
 
   int shortestSpan() const;
   int longestSpan() const;
 
-  struct NoSpaceException : std::exception {
+  class NoSpaceException : public std::exception {
+    const char* what() const throw();
+  };
+  class NoSpanException : public std::exception {
     const char* what() const throw();
   };
 };
