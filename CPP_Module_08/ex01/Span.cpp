@@ -20,14 +20,6 @@ void Span::addNumber(int num) {
   storage_.push_back(num);
 }
 
-void Span::addNumber(std::vector<int>::iterator begin,
-                     std::vector<int>::iterator end) {
-  if ((size_t)std::abs(std::distance(begin, end)) > storage_.capacity())
-    throw NoSpaceException();
-  for (int i = 0; begin != end; i++, begin++)
-    storage_.push_back(*begin);
-}
-
 int Span::shortestSpan() const {
   if (storage_.size() < 2)
     throw NoSpanException();

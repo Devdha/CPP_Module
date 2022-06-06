@@ -16,8 +16,13 @@ class Span {
   ~Span();
 
   void addNumber(int num);
-  void addNumber(std::vector<int>::iterator begin,
-                 std::vector<int>::iterator end);
+  template <typename InputIterator>  // 정의와 선언을 분리하면 에러 발생
+  void addNumber(InputIterator begin, InputIterator end) {
+    if ((size_t)std::abs(std::distance(begin, end)) > storage_.capacity())
+      throw NoSpaceException();
+    for (int i = 0; begin != end; i++, begin++)
+      storage_.push_back(*begin);
+  }
 
   int shortestSpan() const;
   int longestSpan() const;
